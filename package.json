@@ -1,0 +1,41 @@
+{
+  "name": "cypress_extended_tests_and_utilities",
+  "version": "1.0.0",
+  "description": "some more experimentation on generic test functionalities and new utilities",
+  "homepage": "https://github.com/chandreyee729/cypress_extended_tests_and_utilities#readme",
+  "bugs": {
+    "url": "https://github.com/chandreyee729/cypress_extended_tests_and_utilities/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandreyee729/cypress_extended_tests_and_utilities.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
+    "cypress:execution-allure": "cypress run --env allure=true",
+    "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true"
+  },
+  "dependencies": {
+    "jwt-decode": "^4.0.0",
+    "multiple-cucumber-html-reporter": "^3.9.2"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "@cucumber/messages": "^27.2.0",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@cypress/webpack-preprocessor": "^6.0.4",
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "cucumber-html-reporter": "^6.0.0",
+    "cypress": "^14.4.1",
+    "esbuild": "^0.25.5"
+  }
+}
