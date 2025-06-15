@@ -31,8 +31,6 @@
     "@badeball/cypress-cucumber-preprocessor": "^22.1.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "@cucumber/messages": "^27.2.0",
-    "@cypress/browserify-preprocessor": "^3.0.2",
-    "@cypress/webpack-preprocessor": "^6.0.4",
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "cucumber-html-reporter": "^6.0.0",
     "cypress": "^14.4.1",
