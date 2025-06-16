@@ -1,5 +1,9 @@
 name: BDD Feature Tests
 on: push
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
