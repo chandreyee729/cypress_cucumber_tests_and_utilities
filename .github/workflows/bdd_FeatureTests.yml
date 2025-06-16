@@ -1,64 +1,49 @@
 name: BDD Feature Tests
+
 on: 
-    push:
-    workflow_dispatch:
+  push:
+  workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
+
     steps:
-      - name: Checkout Reporsitory
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Use Node.js
+
+      - name: List feature tests folder for debug
+        run: ls -l cypress/e2e/feature_tests/
+
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: 20
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Install Dependencies
+
+      - name: Install dependencies
         run: npm install
 
-      - name: Clear Allure Test Execution Report History
-        run: npm run allure:clear
-        
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v6.1.0
-        with:
-         install: false 
-         command: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
-        continue-on-error: true  
-        
-      - name: Debug Check allure-results directory
+      - name: Run Cypress tests with Allure enabled
+        run: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
+
+      - name: Check allure-results folder contents
+        run: ls -laR allure-results || echo "No allure-results folder found"
+
+      - name: Generate Allure HTML report
         run: |
-          echo "=== Contents of allure-results/ ==="
-          ls -l allure-results || echo "No allure-results found"
-          echo "==================================="
+          npm install -g allure-commandline
+          allure generate allure-results --clean -o allure
 
-      - name: Preserve Allure history
-        run: |
-                npm run allure:history
+      - name: Check generated allure report folder contents
+        run: ls -laR allure || echo "No allure report generated"
 
-      - name: Clear Allure History
-        if: always()
-        run: |
-                npm install -g allure-commandline
-                npm run allure:clear
-                npm run allure:report
-
-
-
-      - name: Debug - check generated allure report
-        run: ls -laR allure || echo "allure report not generated"
-
-      - name: Deploy Data Report to GitHub Pages
-        if: always()
+      - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./allure
-             keep_files: true
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure
