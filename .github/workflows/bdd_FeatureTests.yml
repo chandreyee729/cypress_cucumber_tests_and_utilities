@@ -19,14 +19,15 @@ jobs:
         uses: cypress-io/github-action@v6.1.0
         with:
          install: false 
-         command: npx cypress run --spec cypress/e2e/feature_tests/*.feature 
+         command: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
         continue-on-error: true  
 
       - name: Allure Test Execution Report
         if: always()
         run: |
                 npm install -g allure-commandline
-                allure generate allure-results --clean -o allure-report
+                npm run allure:clear
+                npm run allure:report
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
