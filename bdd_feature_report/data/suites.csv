@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1673","Update User Details (example #1)","","Mon Jun 16 13:47:47 UTC 2025","passed","Mon Jun 16 13:47:48 UTC 2025","","Cucumber - Test all user CRUD features of GoRest APIs","",""
