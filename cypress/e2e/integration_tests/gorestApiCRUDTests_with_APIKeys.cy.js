@@ -158,7 +158,7 @@ describe('GoRest API Resource Property Tests', () => {
             failOnStatusCode: false
         }).then(response => {
             expect(response.status).to.eq(422);
-            cy.log(`User could not be created because ${response.body.message}`)
+            cy.log(`User could not be created because ${JSON.stringify(response.body)}`)
             return cy.wrap(response.body);
         })
     })
