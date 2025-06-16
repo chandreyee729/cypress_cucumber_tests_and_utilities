@@ -14,6 +14,9 @@ jobs:
       # and run all Cypress tests
       - name: Install Dependencies
         run: npm install
+
+      - name: Clear Allure Test Execution Report History
+        run: npm run allure:clear
         
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6.1.0
@@ -39,8 +42,14 @@ jobs:
                 npm run allure:clear
                 npm run allure:report
 
-      - name: Upload Allure Report
+      - name: Upload Allure HTML Report 
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report   
+
+      - name: Upload Allure Raw Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
