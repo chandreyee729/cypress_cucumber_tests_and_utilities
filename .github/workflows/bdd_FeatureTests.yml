@@ -47,13 +47,9 @@ jobs:
         run: |
                 npm install -g allure-commandline
                 npm run allure:clear
+                npm run allure:report
 
-      - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.7
-        if: always()    
-        with:
-            allure_results: ./allure-results
-            allure_report: ./allure
+
 
       - name: Debug - check generated allure report
         run: ls -laR allure || echo "allure report not generated"
