@@ -1,5 +1,8 @@
 name: BDD Feature Tests
-on: push
+on: 
+    push:
+    workflow_dispatch:
+
 permissions:
   contents: write
   pages: write
@@ -45,17 +48,21 @@ jobs:
                 npm install -g allure-commandline
                 npm run allure:clear
 
-      - name: Upload Allure HTML Report on Github Pages
+      - name: Generate Allure Report
         uses: simple-elf/allure-report-action@v1.7
         if: always()    
         with:
-          allure_results: allure-results
-          gh_pages: allure   
+            allure_results: ./allure-results
+            allure_report: ./allure
+
+      - name: Debug - check generated allure report
+        run: ls -laR allure || echo "allure report not generated"
 
       - name: Deploy Data Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
              github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: allure
+             publish_dir: ./allure
              keep_files: true
+

@@ -1,5 +1,5 @@
 const reporter = require('cucumber-html-reporter');
-
+// convert the json report to html format
 const options = {
   theme: 'bootstrap',
   jsonFile: 'cypress/reports/cucumber-json/cucumber.json',  // your JSON file or folder
