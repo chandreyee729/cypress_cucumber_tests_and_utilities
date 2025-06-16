@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1488","Update User Details (example #1)","","Mon Jun 16 12:15:22 UTC 2025","passed","Mon Jun 16 12:15:24 UTC 2025","","Test all user CRUD features of GoRest APIs","",""
