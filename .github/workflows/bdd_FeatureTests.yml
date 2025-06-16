@@ -35,21 +35,24 @@ jobs:
         run: |
                 npm run allure:history
 
-      - name: Allure Test Execution Report
+      - name: Clear Allure History
         if: always()
         run: |
                 npm install -g allure-commandline
                 npm run allure:clear
-                npm run allure:report
 
-      - name: Upload Allure HTML Report 
-        uses: actions/upload-artifact@v4
+      - name: Upload Allure HTML Report on Github Pages
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()    
         with:
-          name: allure-report
-          path: allure-report   
+          allure_results: allure-results
+          gh_pages: allure   
 
-      - name: Upload Allure Raw Results
-        uses: actions/upload-artifact@v4
+      - name: Deploy Data Report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: allure-results
-          path: allure-results
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: allure
+             destination_dir: allure-report
+             keep_files: true
