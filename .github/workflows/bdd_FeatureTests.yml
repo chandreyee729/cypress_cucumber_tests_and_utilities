@@ -21,6 +21,16 @@ jobs:
          install: false 
          command: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
         continue-on-error: true  
+        
+      - name: Debug Check allure-results directory
+        run: |
+          echo "=== Contents of allure-results/ ==="
+          ls -l allure-results || echo "No allure-results found"
+          echo "==================================="
+
+      - name: Preserve Allure history
+        run: |
+                npm run allure:history
 
       - name: Allure Test Execution Report
         if: always()
