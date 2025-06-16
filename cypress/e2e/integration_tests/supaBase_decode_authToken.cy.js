@@ -2,7 +2,7 @@ import { jwtDecode } from 'jwt-decode';
 import SupaBase from '../../pages/supabase';
 const supabase = new SupaBase();
 
-describe('Fetch JWT of a Supabase user from stored Local Storage', () => {
+describe('Test Utility Method to Fetch JWT of a Supabase user from stored Local Storage ', () => {
   const email = Cypress.env('supaBase_auth_userEmail');
   const password = Cypress.env('supaBase_userPassword');
 
@@ -12,7 +12,7 @@ describe('Fetch JWT of a Supabase user from stored Local Storage', () => {
     //cy.intercept('POST', '**/auth/v1/token?grant_type=password').as('loginRequest')
   })
 
-  it('Login to session and store tokens', () => {
+  it('Should login to session and be able to store tokens', () => {
     console.log('email is:', email)
     cy.supaBase_logInAndStoreSessionData(email, password);
     cy.then(() => {
@@ -23,7 +23,7 @@ describe('Fetch JWT of a Supabase user from stored Local Storage', () => {
     });
   });
 
-  it('Decode SessionData from Local Storage and validate User Info in access token', () => {
+  it('Should decode SessionData from Local Storage and validate User Info in access token', () => {
     console.log('email is:', email)
     cy.supaBase_logInAndStoreSessionData(email, password);
     cy.then(() => {
@@ -36,7 +36,7 @@ describe('Fetch JWT of a Supabase user from stored Local Storage', () => {
     });
   });
 
-  it('Fetch Access Token Data', () => {
+  it('Should successfully fetch Access Token Data', () => {
     cy.get_supaBase_AccessToken().then(token => {
       cy.log('token: ', JSON.stringify(token));
     })

@@ -3,13 +3,13 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 const token = Cypress.env('goRest_primary_token');
 let email;
 
-Given("I have created a {string} and {string} user {string}", (gender, status, name) => {
+Given("a {string} and {string} user {string} is created", (gender, status, name) => {
     email = `cypress.${name}${Date.now()}@mailinator.com`;
     cy.createUserGoRest(token, email, name, gender, status).as('newUser');
     cy.log(`Created user... ${name} with with email: ${email}`);
 });
 
-When("I update User Name to {string}", (updatedUserName) => {
+When("the User Name is updated to {string} using user id", (updatedUserName) => {
     cy.get('@newUser').then((user) => {
         cy.request({
             method: 'PUT',
@@ -26,7 +26,7 @@ When("I update User Name to {string}", (updatedUserName) => {
     })
 });
 
-When("I update User Status to {string}", (newStatus) => {
+When("the User Status is updated to {string} using user id", (newStatus) => {
     cy.get('@newUser').then((user) => {
         cy.request({
             method: 'PUT',
@@ -43,7 +43,7 @@ When("I update User Status to {string}", (newStatus) => {
     })
 })
 
-Then("User {string} is updated successfully to {string}", (userDetails, update) => {
+Then("the User's {string} is changed successfully to {string}", (userDetails, update) => {
     cy.get('@updatedUser').then((updateResponse) => {
         expect(updateResponse.status).to.eq(200);
         if (userDetails === "name") {
