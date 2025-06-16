@@ -36,9 +36,8 @@ jobs:
 
       - name: Generate Allure HTML report
         run: |
-          cd cypress_extended_tests_and_utilities
-          npm install -g allure-commandline
-          allure generate allure-results --clean -o allure
+            npm install -g allure-commandline
+            allure generate allure-results --clean -o allure
 
       - name: Check generated allure report folder contents
         run: ls -laR allure || echo "No allure report generated"
