@@ -1,4 +1,4 @@
-name: BDD Feature Tests
+name: Integration Tests
 
 on: 
   push:
@@ -28,17 +28,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress Feature tests with Allure enabled
-        run: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
+      - name: Run Cypress Integration tests with Allure enabled
+        run: npx cypress run --spec cypress/e2e/integration_tests/*.cy.js --env allure=true
 
-      - name: Generate Allure HTML report for Feature Tests 
+      - name: Generate Allure HTML report for Integration tests
         run: |
           npm install -g allure-commandline
           allure generate allure-results --clean -o allure
 
-      - name: Deploy Allure Report to GitHub Pages at "bdd-feature-report"
+      - name: Deploy Allure Report to GitHub Pages at "integration-report"
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure
-          destination_dir: bdd-feature-report
+          destination_dir: integration-report

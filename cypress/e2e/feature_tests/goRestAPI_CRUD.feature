@@ -1,4 +1,4 @@
-Feature: Test all user CRUD features of GoRest APIs
+Feature: Cucumber - Test all user CRUD features of GoRest APIs 
     Scenario Outline: Update User Details
         Given I have created a "male" and "inactive" user "<username>"
         When I update User Name to "<updatedUsername>"
