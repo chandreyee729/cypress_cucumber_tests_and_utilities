@@ -1,4 +1,4 @@
-describe.skip('GoRest API Resource CRUD Tests', () => {
+describe('GoRest API Resource CRUD Tests', () => {
     const token = Cypress.env('goRest_primary_token');
     let email;
     const name = 'goRest User';

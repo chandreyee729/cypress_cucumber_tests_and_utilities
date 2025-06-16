@@ -11,6 +11,7 @@ Given("a {string} and {string} user {string} is created", (gender, status, name)
 
 When("the User Name is updated to {string} using user id", (updatedUserName) => {
     cy.get('@newUser').then((user) => {
+        cy.log(`Original user name : ${user.name}`)
         cy.request({
             method: 'PUT',
             url: `/public/v2/users/${user.id}`,
@@ -22,12 +23,14 @@ When("the User Name is updated to {string} using user id", (updatedUserName) => 
             }
         }).then(response => {
             cy.wrap(response).as('updatedUser');
+            cy.log(`Now Username "${user.name}" updated to "${response.body.name}"`)
         })
     })
 });
 
 When("the User Status is updated to {string} using user id", (newStatus) => {
     cy.get('@newUser').then((user) => {
+        cy.log(`Original user status : ${user.status}`)
         cy.request({
             method: 'PUT',
             url: `/public/v2/users/${user.id}`,
@@ -39,6 +42,8 @@ When("the User Status is updated to {string} using user id", (newStatus) => {
             }
         }).then(response => {
             cy.wrap(response).as('updatedUser');
+            cy.log(`Username "${user.status}" updated to "${response.body.status}"`)
+
         })
     })
 })
