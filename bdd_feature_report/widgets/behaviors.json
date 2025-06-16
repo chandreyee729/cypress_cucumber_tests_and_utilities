@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"a003dafa603c3c80a4c928f190e1c861","name":"Cucumber - Test all user CRUD features of GoRest APIs","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
+{"total":1,"items":[{"uid":"7baeb05cade94dde3f56b649875e446d","name":"Cucumber - User CRUD Operations with GoRest APIs","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}}]}

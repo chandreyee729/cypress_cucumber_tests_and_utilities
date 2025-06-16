@@ -1,2 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1673","Update User Details (example #1)","","Mon Jun 16 13:47:47 UTC 2025","passed","Mon Jun 16 13:47:48 UTC 2025","","Cucumber - Test all user CRUD features of GoRest APIs","",""
+"","1039","Verify successful update of User name and status using GoRest network requests (example #2)","","Mon Jun 16 19:14:48 UTC 2025","passed","Mon Jun 16 19:14:49 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
+"","1574","Verify successful update of User name and status using GoRest network requests (example #1)","","Mon Jun 16 19:14:46 UTC 2025","passed","Mon Jun 16 19:14:48 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
