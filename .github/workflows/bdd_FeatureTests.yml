@@ -43,9 +43,16 @@ jobs:
       - name: Check generated allure report folder contents
         run: ls -laR allure || echo "No allure report generated"
 
+      - name: Show working directory and files
+        run: |
+                pwd
+                ls -la
+                ls -la allure-results
+                ls -la allure || echo "No allure report generated"
+
       - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./cypress_extended_tests_and_utilities/allure
+          publish_dir: ./allure
 
