@@ -29,6 +29,8 @@ jobs:
         run: npm install
 
       - name: Run Cypress Feature tests with Allure enabled
+        env:
+            GOREST_PRIMARY_TOKEN: ${{secrets.GOREST_PRIMARY_TOKEN}}
         run: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
 
       - name: Generate Allure HTML report for Feature Tests 

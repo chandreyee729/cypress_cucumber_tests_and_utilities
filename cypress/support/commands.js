@@ -11,7 +11,7 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
-const project_ref = Cypress.env('supaBase_project_reference');
+const project_ref = Cypress.env('SUPABASE_PROJECT_REFERENCE');
 
 Cypress.Commands.add('supaBase_loginViaAPI', (email, password) => {
     cy.request({

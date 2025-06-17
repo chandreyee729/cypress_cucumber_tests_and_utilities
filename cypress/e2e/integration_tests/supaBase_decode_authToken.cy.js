@@ -3,12 +3,12 @@ import SupaBase from '../../pages/supabase';
 const supabase = new SupaBase();
 
 describe('Test Utility Method to Fetch JWT of a Supabase user from stored Local Storage ', () => {
-  const email = Cypress.env('supaBase_auth_userEmail');
-  const password = Cypress.env('supaBase_userPassword');
+  const email = Cypress.env('SUPABASE_AUTH_USEREMAIL');
+  const password = Cypress.env('SUPABASE_USERPASSWORD');
 
   beforeEach(() => {
     cy.supaBase_logInAndStoreSessionData(email, password);
-    //cy.visit(`${Cypress.env('supaBase_ui_url')}dashboard/sign-in`)
+    //cy.visit(`${Cypress.env('SUPABASE_UI_URL')}dashboard/sign-in`)
     //cy.intercept('POST', '**/auth/v1/token?grant_type=password').as('loginRequest')
   })
 
@@ -31,7 +31,7 @@ describe('Test Utility Method to Fetch JWT of a Supabase user from stored Local 
       const decoded = jwtDecode(tokenData.currentSession.access_token);
 
       cy.log(`Decoded Token: ${JSON.stringify(decoded, null, 2)}`);
-      expect(decoded.email).to.eq(Cypress.env('supaBase_auth_userEmail'));
+      expect(decoded.email).to.eq(Cypress.env('SUPABASE_AUTH_USEREMAIL'));
       expect(decoded.role).to.exist;
     });
   });
@@ -43,8 +43,8 @@ describe('Test Utility Method to Fetch JWT of a Supabase user from stored Local 
   })
 
   it.skip('Login from UI and fetch token', () => {
-    supabase.getEmail().type(Cypress.env('supaBase_ui_userEmail'));
-    supabase.getPassword().type(Cypress.env('supaBase_userPassword'));
+    supabase.getEmail().type(Cypress.env('SUPABASE_UI_USEREMAIL'));
+    supabase.getPassword().type(Cypress.env('SUPABASE_USERPASSWORD'));
     supabase.getSignIn().click();
     // This doesn't work successfully, because of captcha 
     cy.wait('@loginRequest').then(request => {

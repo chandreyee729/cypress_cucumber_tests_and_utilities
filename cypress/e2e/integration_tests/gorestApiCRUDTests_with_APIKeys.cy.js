@@ -1,5 +1,5 @@
 describe('GoRest API Resource CRUD Tests', () => {
-    const token = Cypress.env('goRest_primary_token');
+    const token = Cypress.env('GOREST_PRIMARY_TOKEN');
     let email;
     const name = 'goRest User';
     const gender = "female";
@@ -44,8 +44,8 @@ describe('GoRest API Resource CRUD Tests', () => {
                 }
             }).then(response => {
                 expect(response.status).to.eq(200);
-                cy.log(`Username "${user.name}" updated to "${response.body.name}"`)
-                cy.log(`Username "${user.status}" updated to "${response.body.status}"`)
+                cy.log(`User name "${user.name}" updated to "${response.body.name}"`)
+                cy.log(`User status "${user.status}" updated to "${response.body.status}"`)
                 expect(response.body.name).to.eq(updatedUserName);
             })
         })
@@ -69,7 +69,7 @@ describe('GoRest API Resource CRUD Tests', () => {
             failOnStatusCode: false
             }).then(response => {
                 expect(response.status).to.eq(404);
-                cy.log(`Could not be updated because "${response.body.message}"`)
+                cy.log(`User could not be updated because "${response.body.message}"`)
             })
         })
     })
@@ -122,7 +122,7 @@ describe('GoRest API Resource CRUD Tests', () => {
 
 describe('GoRest API Resource Property Tests', () => {
 
-    const token = Cypress.env('goRest_primary_token');
+    const token = Cypress.env('GOREST_PRIMARY_TOKEN');
     
     it('Should get all users and validate their properties - id, email, name, gender and status', () => {
         cy.request('/public/v2/users').then(response => {

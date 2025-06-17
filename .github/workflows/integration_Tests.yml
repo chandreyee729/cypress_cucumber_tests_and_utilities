@@ -29,6 +29,10 @@ jobs:
         run: npm install
 
       - name: Run Cypress Integration tests with Allure enabled
+        env:
+            GOREST_PRIMARY_TOKEN: ${{secrets.GOREST_PRIMARY_TOKEN}}
+            SUPABASE_PROJECT_REFERENCE: ${{secrets.SUPABASE_PROJECT_REFERENCE}}
+            SUPABASE_USERPASSWORD: ${{secrets.SUPABASE_USERPASSWORD}}
         run: npx cypress run --spec cypress/e2e/integration_tests/*.cy.js --env allure=true
 
       - name: Generate Allure HTML report for Integration tests

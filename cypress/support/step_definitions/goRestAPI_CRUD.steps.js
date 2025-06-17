@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
-const token = Cypress.env('goRest_primary_token');
+const token = Cypress.env('GOREST_PRIMARY_TOKEN');
 let email;
 
 Given("a {string} and {string} user {string} is created", (gender, status, name) => {
