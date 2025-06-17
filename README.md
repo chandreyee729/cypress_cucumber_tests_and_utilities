@@ -6,14 +6,15 @@ This repository provides a well-structured Cypress testing framework designed fo
 Go to given link and generate an API token for personal use.
 
 - This project uses [Supabase](https://supabase.com/) - an open-source Firebase alternative that provides instant APIs, authentication, and a Postgres database. In this project, Supabase is leveraged for handling user authentication and role-based access control, enabling secure and scalable testing environments.
-Go to Supabase, signup, create a project. use PRoject reference and sign up using curl:
-```curl --location 'https://${{project_reference_no}}$.supabase.co/auth/v1/signup' \
+Go to Supabase, signup, create a project. use Project reference and sign up using curl:
+
+<pre>```curl --location 'https://${{project_reference_no}}$.supabase.co/auth/v1/signup' \
 --header 'Content-Type: application/json' \
 --header 'apikey: ${{your_api_key}}' \
 --data-raw '{
   "email": "${{useremail}}",
   "password": "${{userPassword}}"
-}'```
+}'```</pre>
 
 > Ideal for QA Engineers and SDETs who want reusable, modular, and CI/CD-ready Cypress test automation.
 
@@ -35,9 +36,9 @@ This project includes:
 | [Cypress](https://www.cypress.io/) | E2E & integration testing |
 | [Allure Reporter](https://github.com/allure-framework/allure-js) | Test result visualization |
 | [GitHub Actions](https://github.com/cypress-io/github-action) | CI/CD pipeline |
-| [Cucumber] | "@badeball/cypress-cucumber-preprocessor": "^22.1.0", "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",|
-| [Cucumber Reporting] | multiple-cucumber-html-reporter |
-| [JWT Decode] | Browser library that helps decoding JWT tokens |
+| Cucumber | "@badeball/cypress-cucumber-preprocessor": "^22.1.0", "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",|
+| Cucumber Reporting | multiple-cucumber-html-reporter |
+| JWT Decode | Browser library that helps decoding JWT tokens |
 
 # Setup Project
 - Clone
@@ -61,7 +62,7 @@ npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 
 
-# reports generated at Github Pages
+# Reports generated on Github Pages
 Feature Tests: https://chandreyee729.github.io/cypress_extended_tests_and_utilities/bdd_feature_report/
 Integration Tests: https://chandreyee729.github.io/cypress_extended_tests_and_utilities/integration_report/
 
