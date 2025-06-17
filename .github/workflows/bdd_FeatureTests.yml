@@ -34,9 +34,12 @@ jobs:
         run: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
 
       - name: Preserve Allure history
-        run: |
-          mkdir -p allure-results/history
-          cp -R allure-report/history/* allure-results/history/ || true
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: allure
+          path: allure
 
       - name: Generate Allure HTML report for Feature Tests 
         run: |
