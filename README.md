@@ -36,9 +36,9 @@ This project includes:
 | [Cypress](https://www.cypress.io/) | E2E & integration testing |
 | [Allure Reporter](https://github.com/allure-framework/allure-js) | Test result visualization |
 | [GitHub Actions](https://github.com/cypress-io/github-action) | CI/CD pipeline |
-| [Cucumber] | "@badeball/cypress-cucumber-preprocessor": "^22.1.0", "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",|
-| [Cucumber Reporting] | multiple-cucumber-html-reporter |
-| [JWT Decode] | Browser library that helps decoding JWT tokens |
+| Cucumber | "@badeball/cypress-cucumber-preprocessor": "^22.1.0", "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",|
+| Cucumber Reporting | multiple-cucumber-html-reporter |
+| JWT Decode | Browser library that helps decoding JWT tokens |
 
 # Setup Project
 - Clone
@@ -62,7 +62,7 @@ npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 
 
-# reports generated at Github Pages
+# Reports generated on Github Pages
 Feature Tests: https://chandreyee729.github.io/cypress_extended_tests_and_utilities/bdd_feature_report/
 Integration Tests: https://chandreyee729.github.io/cypress_extended_tests_and_utilities/integration_report/
 
