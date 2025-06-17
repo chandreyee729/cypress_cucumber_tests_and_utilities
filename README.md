@@ -6,7 +6,8 @@ This repository provides a well-structured Cypress testing framework designed fo
 Go to given link and generate an API token for personal use.
 
 - This project uses [Supabase](https://supabase.com/) - an open-source Firebase alternative that provides instant APIs, authentication, and a Postgres database. In this project, Supabase is leveraged for handling user authentication and role-based access control, enabling secure and scalable testing environments.
-Go to Supabase, signup, create a project. use PRoject reference and sign up using curl:
+Go to Supabase, signup, create a project. use Project reference and sign up using curl:
+
 ```curl --location 'https://${{project_reference_no}}$.supabase.co/auth/v1/signup' \
 --header 'Content-Type: application/json' \
 --header 'apikey: ${{your_api_key}}' \
