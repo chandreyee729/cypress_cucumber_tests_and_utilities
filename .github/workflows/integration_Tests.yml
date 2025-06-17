@@ -35,6 +35,11 @@ jobs:
             CYPRESS_SUPABASE_USERPASSWORD: ${{secrets.SUPABASE_USERPASSWORD}}
         run: npx cypress run --spec "cypress/e2e/integration_tests/*.cy.js" --env allure=true
 
+      - name: Preserve Allure history
+        run: |
+          mkdir -p allure-results/history
+          cp -R allure-report/history/* allure-results/history/ || true
+
       - name: Generate Allure HTML report for Integration tests
         run: |
           npm install -g allure-commandline
