@@ -17,9 +17,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List feature tests folder for debug
-        run: ls -l cypress/e2e/feature_tests/
-
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
@@ -33,13 +30,20 @@ jobs:
             CYPRESS_GOREST_PRIMARY_TOKEN: ${{secrets.GOREST_PRIMARY_TOKEN}}
         run: npx cypress run --spec cypress/e2e/feature_tests/*.feature --env allure=true
 
-      - name: Preserve Allure history
-        uses: actions/checkout@v2
+# Checkout existing gh-pages content to fetch historical Allure data
+      - name: Checkout gh-pages for Allure history
+        uses: actions/checkout@v4
         if: always()
-        continue-on-error: true
         with:
-          ref: allure
-          path: allure
+          ref: gh-pages
+          path: old-report
+
+# Copy history into allure-results (ignore errors if missing)
+      - name: Restore Allure history
+        run: |
+          mkdir -p allure-results/history
+          cp -r old-report/bdd_feature_report/history/* allure-results/history/ || true
+
 
       - name: Generate Allure HTML report for Feature Tests 
         run: |
