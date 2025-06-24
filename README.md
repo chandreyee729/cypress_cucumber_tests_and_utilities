@@ -3,7 +3,8 @@ This repository provides a well-structured Cypress testing framework designed fo
 
 
 - This project uses the [GoREST API](https://gorest.co.in/) — a powerful, free RESTful service for testing HTTP methods such as GET, POST, PUT, and DELETE. It provides dummy users, posts, comments, and more, making it ideal for end-to-end and API automation testing scenarios.
-Go to given link and generate an API token for personal use.
+Go to gorest homepage and generate an API token for personal use.
+Also, find the GoRest Postman collection and environment variables attached to this project for reference. This defines the manual test approach on the APIs
 
 - This project uses [Supabase](https://supabase.com/) - an open-source Firebase alternative that provides instant APIs, authentication, and a Postgres database. In this project, Supabase is leveraged for handling user authentication and role-based access control, enabling secure and scalable testing environments.
 Go to Supabase, signup, create a project. use Project reference and sign up using curl:
