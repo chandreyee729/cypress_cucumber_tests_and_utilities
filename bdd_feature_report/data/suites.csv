@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1474","Verify successful update of User name and status using GoRest network requests (example #1)","","Mon Aug 25 23:45:52 UTC 2025","passed","Mon Aug 25 23:45:53 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
-"","1484","Verify user can create comments on a new post using GoRest network requests (example #1)","","Mon Aug 25 23:45:54 UTC 2025","passed","Mon Aug 25 23:45:56 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
-"","945","Verify successful update of User name and status using GoRest network requests (example #2)","","Mon Aug 25 23:45:54 UTC 2025","passed","Mon Aug 25 23:45:54 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
+"","1817","Verify user can create comments on a new post using GoRest network requests (example #1)","","Tue Aug 26 12:37:19 UTC 2025","passed","Tue Aug 26 12:37:21 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
+"","1112","Verify successful update of User name and status using GoRest network requests (example #2)","","Tue Aug 26 12:37:18 UTC 2025","passed","Tue Aug 26 12:37:19 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
+"","1741","Verify successful update of User name and status using GoRest network requests (example #1)","","Tue Aug 26 12:37:16 UTC 2025","passed","Tue Aug 26 12:37:18 UTC 2025","","Cucumber - User CRUD Operations with GoRest APIs","",""
