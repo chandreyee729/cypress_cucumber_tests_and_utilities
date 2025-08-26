@@ -47,7 +47,7 @@ jobs:
       - name: Restore Allure history
         run: |
           mkdir -p allure-results/history
-          cp -r old-report/integration_report/history/* allure-results/history/ || true
+          cp -r old-report/integration_report/* allure-results/history/ || true
 
       - name: Generate Allure HTML report for Integration tests
         run: |
