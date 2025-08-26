@@ -6,7 +6,7 @@ This repository provides a well-structured Cypress testing framework designed fo
 Go to gorest homepage and generate an API token for personal use.
 Also, find the GoRest Postman collection and environment variables attached to this project for reference. This defines the manual test approach on the APIs
 
-- This project uses [Supabase](https://supabase.com/) - an open-source Firebase alternative that provides instant APIs, authentication, and a Postgres database. In this project, Supabase is leveraged for handling user authentication and role-based access control, enabling secure and scalable testing environments.
+- [x] This project uses [Supabase](https://supabase.com/) - an open-source Firebase alternative that provides instant APIs, authentication, and a Postgres database. In this project, Supabase is leveraged for handling user authentication and role-based access control, enabling secure and scalable testing environments. ----- <Tests are failing - Project reference has to be updated>
 Go to Supabase, signup, create a project. use Project reference and sign up using curl:
 
 <pre>```curl --location 'https://${{project_reference_no}}$.supabase.co/auth/v1/signup' \
@@ -64,8 +64,8 @@ npx allure open allure-report
 
 
 # Reports generated on Github Pages
-Feature Tests: https://chandreyee729.github.io/cypress_extended_tests_and_utilities/bdd_feature_report/
-Integration Tests: https://chandreyee729.github.io/cypress_extended_tests_and_utilities/integration_report/
+Feature Tests: https://chandreyee729.github.io/cypress_cucumber_tests_and_utilities/bdd_feature_report/
+Integration Tests: https://chandreyee729.github.io/cypress_cucumber_tests_and_utilities/integration_report/
 
 Created By
 Chandreyee Chakraborty

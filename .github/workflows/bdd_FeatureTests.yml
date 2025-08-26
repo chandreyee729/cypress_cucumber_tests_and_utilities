@@ -42,7 +42,7 @@ jobs:
       - name: Restore Allure history
         run: |
           mkdir -p allure-results/history
-          cp -r old-report/bdd_feature_report/* allure-results/history/ || true
+          cp -r old-report/bdd_feature_report/history/* allure-results/history/ || true
 
 
       - name: Generate Allure HTML report for Feature Tests 

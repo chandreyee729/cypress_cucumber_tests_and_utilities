@@ -2,7 +2,7 @@ import { jwtDecode } from 'jwt-decode';
 import SupaBase from '../../pages/supabase';
 const supabase = new SupaBase();
 
-describe('Test Utility Method to Fetch JWT of a Supabase user from stored Local Storage ', () => {
+describe.skip('Test Utility Method to Fetch JWT of a Supabase user from stored Local Storage ', () => {
   const email = Cypress.env('SUPABASE_AUTH_USEREMAIL');
   const password = Cypress.env('SUPABASE_USERPASSWORD');
 
